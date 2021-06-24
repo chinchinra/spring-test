@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.service.BoardService;
@@ -134,10 +135,14 @@ public class BoardController {
 
 	// 게시판 조회
 	@RequestMapping(value = "/readView", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception {
+	public String read( BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model , @RequestParam("bno") int no) throws Exception {
 		logger.info("read");
 
+		System.out.println(no);
+		
 		model.addAttribute("read", service.read(boardVO.getBno()));
+		//가르쳐 줄라고 작성한것 @RequestParam("bno") int no 없어도 무방
+//		model.addAttribute("read", service.read(no));
 		model.addAttribute("scri", scri);
 
 		List<ReplyVO> replyList = replyService.readReply(boardVO.getBno());

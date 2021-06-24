@@ -95,12 +95,13 @@ li {
 							<li><a
 								href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
 						</c:if>
-
+						<!--숫자 출력 begin 에서 end 까지 정수 idx값으로 출력 ex) 0 ,3이라면  0123  -->
+						
 						<c:forEach begin="${pageMaker.startPage}"
 							end="${pageMaker.endPage}" var="idx">
 							<li><a href="list${pageMaker.makeSearch(idx)}">${idx}</a></li>
 						</c:forEach>
-
+						<!-- 왜 이전페이지는 pageMaker.endPage > 0 없는데 될까 -->
 						<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 							<li><a
 								href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>

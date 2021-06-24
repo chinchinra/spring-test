@@ -2,6 +2,7 @@ package kr.co.vo;
 
 public class Criteria {
 
+	//현재 페이지
 	private int page;
 	private int perPageNum;
 	private int rowStart;
@@ -11,7 +12,7 @@ public class Criteria {
 		this.page = 1;
 		this.perPageNum = 10;
 	}
-
+	
 	public void setPage(int page) {
 		if (page <= 0) {
 			this.page = 1;
@@ -32,19 +33,21 @@ public class Criteria {
 		return page;
 	}
 
+	//rowstart,end 사용하기위한 사전작업으로 예상
 	public int getPageStart() {
 		return (this.page - 1) * perPageNum;
 	}
-
+// page 1 -1  *10 = 0  , 2 -1 *10 = 10
 	public int getPerPageNum() {
 		return this.perPageNum;
 	}
 
+	//보여지는 열의 스타트   between rowstart and rowend
 	public int getRowStart() {
 		rowStart = ((page - 1) * perPageNum) + 1;
 		return rowStart;
 	}
-
+// 0 * 10  + 1   = 1  , 2 -1 * 10 + 1 = 11
 	public int getRowEnd() {
 		rowEnd = rowStart + perPageNum - 1;
 		return rowEnd;
