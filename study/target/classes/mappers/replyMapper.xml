@@ -39,6 +39,13 @@
 		DELETE FROM MP_REPLY
 		WHERE RNO = #{rno}
 	</delete>
+	
+	<!--게시판넘버 댓글 삭제 -->
+	<delete id="boardDeleteReply" parameterType="int">
+		DELETE FROM MP_REPLY
+		WHERE BNO = #{bno}
+	</delete>
+	
 
 	<!-- 선택된 댓글 조회 -->
 	<select id="selectReply" resultType="kr.co.vo.ReplyVO">

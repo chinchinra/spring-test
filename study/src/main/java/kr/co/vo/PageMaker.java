@@ -56,7 +56,7 @@ public class PageMaker {
 		return cri;
 	}
 
-	//다음 이전버튼 보여줄지 말지 메서드
+	//다음 이전버튼 보여줄지 말지 메서드 , start,end page setting 
 	private void calcData() {
 		// 11 10 ceil = 그것보다 큰값중 가장 작은 정수값 , page = 11  1.1 -> 11 endpage  = 11
 		endPage = (int) (Math.ceil(cri.getPage() / (double) displayPageNum) * displayPageNum);

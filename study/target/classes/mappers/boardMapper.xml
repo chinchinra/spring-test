@@ -63,7 +63,7 @@
 	</sql>
 
 
-	
+
 	<select id="read" parameterType="int"
 		resultType="kr.co.vo.BoardVO">
 		SELECT BNO
@@ -84,10 +84,27 @@
 	</update>
 
 	<delete id="delete" parameterType="int">
-		DELETE
-		FROM MP_BOARD
-		WHERE BNO =
-		#{bno}
+
+		
+
+		{
+			CALL
+				BEGIN
+					DELETE
+					FROM MP_REPLY
+					WHERE BNO =
+					#{bno};
+					DELETE
+					FROM MP_BOARD
+					WHERE BNO =
+					#{bno};
+				END
+		}
+
+
 	</delete>
+
+
+
 
 </mapper>

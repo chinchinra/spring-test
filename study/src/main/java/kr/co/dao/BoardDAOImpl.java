@@ -41,7 +41,7 @@ public class BoardDAOImpl implements BoardDAO {
 	// 게시물 조회
 	@Override
 	public BoardVO read(int bno) throws Exception {
-
+		
 		return sqlSession.selectOne("boardMapper.read", bno);
 	}
 
@@ -55,9 +55,16 @@ public class BoardDAOImpl implements BoardDAO {
 	// 게시물 삭제
 	@Override
 	public void delete(int bno) throws Exception {
-
+		
 		sqlSession.delete("boardMapper.delete", bno);
 	}
+
+	@Override
+	public void replyDelete(int bno) throws Exception {
+		sqlSession.delete("boardMapper.deleteReply",bno);
+		
+	}
+	
 
 
 }

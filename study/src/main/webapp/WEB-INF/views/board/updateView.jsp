@@ -62,32 +62,29 @@
 				action="/board/update">
 				<input type="hidden" name="bno" value="${update.bno}"
 					readonly="readonly" />
-				<table>
-					<tbody>
-						<tr>
-							<td><label for="title">제목</label><input type="text"
-								id="title" name="title" value="${update.title}" class="chk"
-								title="title input" /></td>
-						</tr>
-						<tr>
-							<td><label for="content">내용</label> <textarea id="content"
-									name="content" class="chk" title="contents input"><c:out
-										value="${update.content}" /></textarea></td>
-						</tr>
-						<tr>
-							<td><label for="writer">작성자</label><input type="text"
-								id="writer" name="writer" value="${update.writer}" class="chk"
-								title="writer input" readonly="readonly" /></td>
-						</tr>
-						<tr>
-							<td><label for="regdate">작성날짜</label> <fmt:formatDate
-									value="${update.regdate}" pattern="yyyy-MM-dd" /></td>
-						</tr>
-					</tbody>
-				</table>
+							<div class="form-group">
+							<label for="title" class="col-sm-2 control-label">제목</label><input type="text"
+								id="title" class="form-control" name="title" value="${update.title}" class="chk"
+								title="title input" />
+								</div>
+						<div class="form-group">
+							<label for="content" class="col-sm-2 control-label">내용</label> <textarea id="content"
+									name="content" class="form-control" class="chk" title="contents input"><c:out
+										value="${update.content}" /></textarea>
+										</div>
+						<div class="form-group">
+							<label for="writer" class="col-sm-2 control-label">작성자</label><input type="text"
+								id="writer" name="writer" class="form-control" value="${update.writer}" class="chk"
+								title="writer input" readonly="readonly" />
+								</div>
+						<div class="form-group">
+							<label for="regdate" class="col-sm-2 control-label">작성날짜</label> <fmt:formatDate
+									value="${update.regdate}" pattern="yyyy-MM-dd" />
+									</div>
+				
 				<div>
-					<button type="submit" class="update_btn">저장</button>
-					<button type="submit" class="cancel_btn">취소</button>
+					<button type="submit" class="update_btn btn btn-success">저장</button>
+					<button type="submit" class="update_btn btn btn-warning">취소</button>
 				</div>
 			</form>
 		</section>

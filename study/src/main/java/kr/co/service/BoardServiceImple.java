@@ -50,7 +50,7 @@ public class BoardServiceImple implements BoardService {
 
 	@Override
 	public void delete(int bno) throws Exception {
-
+		
 		dao.delete(bno);
 	}
 
